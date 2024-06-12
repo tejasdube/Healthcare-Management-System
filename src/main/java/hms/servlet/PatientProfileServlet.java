@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.mysql.cj.Session;
+
 import hms.entity.Patients;
 import hms.service.PatientService;
 
@@ -24,13 +26,19 @@ public class PatientProfileServlet extends HttpServlet {
 		PatientService patientService = new PatientService();
 		try {
 
-			Patients patients = patientService.patientProfile(email);
-			session.setAttribute("patient", patients);
+			patientService.patientProfile(email);
+
+			// Adding debug statement
+			//System.out.println("Patient retrieved: " + patient.getId());
+
+			// session.setAttribute("patient", patient);
+			// session.setAttribute("pid", patient.getId());
 			RequestDispatcher dispatcher = req.getRequestDispatcher("patient_profile.jsp");
 			dispatcher.forward(req, resp);
+
 		} catch (Exception e) {
 			// TODO: handle exception
+			System.out.println(e);
 		}
 	}
-
 }

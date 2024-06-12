@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.jasper.tagplugins.jstl.core.If;
+
 import hms.entity.Patients;
 import hms.service.PatientService;
 
@@ -21,18 +23,22 @@ public class PatientLogInServlet extends HttpServlet {
 
 		String email = req.getParameter("email");
 		String pass = req.getParameter("pass");
-		//PatientService patientService = new PatientService();
-		Patients patients=new Patients();
-		patients.setEmail(email);
+		// PatientService patientService = new PatientService();
+		// Patients patients = new Patients();
+		// patients.setEmail(email);
 		try {
-			if (PatientService.patientLogIn(email, pass)) {
-				HttpSession session=req.getSession();
-				session.setAttribute("name", email);
-				//HttpSession session = req.getSession();
-	           // session.setAttribute("loggedIn", true);
+			Patients patients = PatientService.patientLogIn(email, pass);
+			if (patients != null) {
+				HttpSession session = req.getSession();
+				session.setAttribute("pid", patients.getId());
+				session.setAttribute("patient", patients);
+				session.setAttribute("name", patients.getFirstname()+" "+patients.getLastname());
 				
+				// HttpSession session = req.getSession();
+				// session.setAttribute("loggedIn", true);
+
 				RequestDispatcher dispatcher = req.getRequestDispatcher("patient.jsp");
-				req.setAttribute("name",email );
+				req.setAttribute("name", email);
 				dispatcher.forward(req, resp);
 
 			} else {

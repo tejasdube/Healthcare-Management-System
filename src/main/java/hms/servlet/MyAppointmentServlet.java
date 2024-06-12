@@ -9,25 +9,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import hms.entity.Docters;
-import hms.entity.Patients;
-import hms.service.DoctorService;
-import hms.service.PatientService;
+import hms.entity.Appointments;
+import hms.service.AppointmentService;
 
-@WebServlet("/bookappointment")
-public class BookAppoinmentsServlet extends HttpServlet {
+@WebServlet("/patientAppointments")
+public class MyAppointmentServlet extends HttpServlet {
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		AppointmentService appointmentService = new AppointmentService();
+		int patientId = (int) req.getSession().getAttribute("pid");
 
-		
-		DoctorService doctorService = new DoctorService();
 		try {
-
-			List<Docters> docters = doctorService.getallDocters();
-			RequestDispatcher dispatcher = req.getRequestDispatcher("bookappoinments.jsp");
-			req.setAttribute("doctorlist", docters);
+			List<Appointments> list = appointmentService.getAppointmentsByPatientId(patientId);
+			req.setAttribute("Alist", list);
+			RequestDispatcher dispatcher = req.getRequestDispatcher("patientAppoin.jsp");
 			dispatcher.forward(req, resp);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

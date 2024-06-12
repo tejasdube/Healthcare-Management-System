@@ -19,10 +19,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Patients</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Doctors</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Appointments</a></li>
                 <li class="nav-item"><a class="nav-link" href="logout">Logout</a></li>
             </ul>
         </div>
@@ -30,10 +26,35 @@
 </nav>
 
 <!-- Admin Dashboard Content -->
+<br>
+
+<br>
+<br>
 <div class="container mt-5">
     <h2>Welcome to the Admin Dashboard</h2>
-    <!-- Add your dashboard content here -->
+    <!-- Dashboard content -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Patients</h5>
+                    <p class="card-text">View, add, edit, or delete patient records and appointments.</p>
+                    <a href="#" class="btn btn-primary">Go to Patients</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Doctors</h5>
+                    <p class="card-text">View, add, edit, or delete doctor profiles and schedules.</p>
+                    <a href="#" class="btn btn-primary">Go to Doctors</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 
 <!-- Bootstrap JS and dependencies -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

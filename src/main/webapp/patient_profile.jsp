@@ -37,7 +37,7 @@ body {
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="bookappoinmnent">Book Appointment</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bookappointment">Book Appointment</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <%=(String) session.getAttribute("name") %>
