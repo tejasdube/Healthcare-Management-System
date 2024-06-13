@@ -47,7 +47,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Manage Doctors</h5>
-                    <p class="card-text">View, add, edit, or delete doctor profiles and schedules.</p>
+                    <p class="card-text">View, add, edit, or delete doctor profiles .</p>
                     <a href="#" class="btn btn-primary">Go to Doctors</a>
                 </div>
             </div>
